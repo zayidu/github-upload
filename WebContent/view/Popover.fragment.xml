@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:cb="imed.app.physio.view.CControl"
+	xmlns:core="sap.ui.core">
+	<Popover title="{signI18n>titleSignature}" afterClose="onAfterCloseSignaturePopUp"
+		class="sapUiPopupWithPadding" modal="true" contentWidth="auto" placement="Auto">
+		<content>
+									<core:HTML
+							content='&lt;div class=sigPad&gt;
+			&lt;div class=&quot;sig sigWrapper&quot;&gt;
+				&lt;canvas id=&quot;canImg&quot; style=&quot;border:1px solid red;&quot; class=pad width=400 height=180&gt;&lt;/canvas&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;'></core:HTML>
+		<!-- 
+			&lt;ul style=&quot;list-style-type:none;&quot; class=sigNav&gt;
+				&lt;li class=drawIt&gt;&lt;a href=&quot;#draw-it&quot;&gt;Draw It&lt;/a&gt;&lt;/li&gt;
+				&lt;li class=clearButton&gt;&lt;a href=&quot;#clear&quot;&gt;Clear&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		 -->
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button text="{signI18n>txtSave}" type="Accept"  press="handleSaveButton" />
+				<Button text="{signI18n>txtClose}" type="Reject"  press="handleCloseButton" />
+				
+			</Toolbar>
+		</footer>
+		<Image src="{ProductPicUrl}" width="15em" densityAware="false" />
+	</Popover>
+</core:FragmentDefinition>

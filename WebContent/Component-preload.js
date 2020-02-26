@@ -1,0 +1,1 @@
+jQuery.sap.declare("imed.app.physio.Component-preload");

@@ -1,0 +1,188 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Panel class="pnlSearchDate" id="pnlContent" showHeader="false">
+		<html:span class="textcolor">
+			<html:b id="topHeader" class="headerText">PHYSIOTHERAPY DEPARTMENT CONFIRMATION OF TREATMENT</html:b>
+		</html:span>
+		<html:br />
+		<!-- <HBox alignItems="Center">
+			<Label class="textcolor" width="300px"
+				text="{i18n>txtPatientName}" />
+			<Input id="patName" value="{oModel>FullName}"
+				class="inputbordercolor" editable="false" width="300px" />
+		</HBox> -->
+		<HBox justifyContent="Center">
+			<VBox width="100%"> 
+				<html:div class="textcolor" id="map_canvas"
+					style="font-size: 0.875rem;font-family: Arial,Helvetica,sans-serif;line-height:25px;color:#6a7694;text-align:justify;">
+					<html:p>
+						I,
+						<html:input class="inputEntry" id="patName"
+							readonly="readonly"></html:input>
+						hereby confirm that I received one session of physiotherapy
+						treatment in Medeor Hospital.
+					</html:p>
+				</html:div>  
+			</VBox>
+			</HBox>
+			
+			
+			    <!-- =============================================================================== -->
+				 <!-- 	Signature												    			  -->
+				 <!-- =============================================================================== -->
+				<l:Grid defaultSpan="L12 M12 S12"> 
+		         <l:content> 
+		         <!-- =============================================================================== -->
+				 <!-- 	Patient Signature												    			  -->
+				 <!-- =============================================================================== -->
+		            <Panel id="txtSignDate"  width="100%" justifyContent="Center"
+		            headerText="{i18n>txtSignDate}"
+						   class="sapUiSizeCompact pnlbg gridPanel sapMPanelBG"> 
+						   <content> 
+						   <!-- <Label text="{i18n>txtSignDate}" 
+						          class="lbltext1 sapUiTinyMarginEnd sapUiTinyMarginTop" 
+						          width="7rem" 
+						          textAlign="Right" 
+						          labelfor="idlbOrderFrom" />  
+						    <html:br /> -->
+						    <Button 
+						    class="ButtonWidth" align="center"
+						    id="imgOne" text="{i18n>txtTapHere}" press="onClickSignature" />   
+						    <html:br /> 
+						    <Image id="imgOneDisplay"  width="300px" height="110px"></Image>     
+						   </content> 
+						  <layoutData> 
+						  	<l:GridData span="L5 M12 S12" />
+						  </layoutData> 
+					</Panel> 
+				 <!-- =============================================================================== -->
+				 <!-- 	Substitute consent giver (For children below 18 years)    									         		  				-->
+				 <!-- =============================================================================== -->	
+						 <Panel id="txtSignSubs"  width="100%"
+						 		headerText="{i18n>txtSignSubs}"
+						 		class="sapUiSizeCompact pnlbg gridPanel sapMPanelBG"> 
+						    <content>
+							    <!-- <Label class="textcolor" text="{i18n>txtSignSubs}" /> 
+							    <html:br /> -->
+									<Button 
+									 align="center" class="ButtonWidth ButtonMarginLeft"
+									id="imgTwo" text="{i18n>txtTapHere}" press="onClickSignature" />
+									<Label />
+									<html:br />
+									<Image id="imgTwoDisplay" width="300px" height="110px" class="ButtonMarginLeft"></Image>       
+							  </content> 
+							  <layoutData> 
+							  	<l:GridData span="L7 M12 S12" />
+							  </layoutData> 
+						 </Panel> 
+				  </l:content>
+				  </l:Grid>		 
+				 <!-- =============================================================================== -->
+				 <!-- 	Signature												    			  -->
+				 <!-- =============================================================================== -->
+				<l:Grid defaultSpan="L12 M12 S12"> 
+		         <l:content> 
+				<!-- =============================================================================== -->
+				 <!-- 	Modality CheckBox   									         		  				-->
+				 <!-- =============================================================================== -->	
+						<!--  <html:div class="container-time-item"> -->
+						 <Panel id="txtModality"  width="100%"
+						 		headerText="Modality"
+						 		class="sapUiSizeCompact"> 
+						    <content>
+							    	<CheckBox id="IFT" text="IFT" /> 
+							    	<html:br />
+									<CheckBox id="ULTRASOUND" text="Ultrasound" /> 
+									<html:br />
+									<CheckBox id="EMS" text="Electrical Muscle Stimulation" /> 
+									<html:br />
+									<CheckBox id="ITT" text="Intermittent Traction" /> 
+									<html:br />
+									<CheckBox id="MOH" text="Moist Heat" /> 
+									<html:br />
+									<CheckBox id="MTT" text="Manual Therapy" /> 
+									<html:br />
+									<CheckBox id="EXC" text="Exercise" /> 
+									<html:br />
+									<CheckBox id="OTHERS" text="Others" select="onOther" />
+									<html:br />
+									<html:input class="inputEntry sapMLabel" id="others" readonly="true" ></html:input>     
+							  </content> 
+							  <layoutData> 
+							  	<l:GridData span="L6 M12 S12" />
+							  </layoutData> 
+						 </Panel>
+						 
+				 <!-- =============================================================================== -->
+				 <!-- 	Time In    									         		  				-->
+				 <!-- =============================================================================== -->	
+				 		<!-- <html:div class="container-time">
+				 		<html:div class="container-time-item"> -->
+						 <Panel id="txtTimeIn"  width="100%"
+						 		headerText="{i18n>txtTimeIn}"
+						 		class="sapUiSizeCompact"> 
+						    <content>
+							    <!-- <Label class="textcolor" text="{i18n>txtTimeIn}" /> -->
+									<DateTimeInput id="inPatientGuardianDT" class="inputbordercolor" liveChange="onValidate"
+										type="DateTime"></DateTimeInput>       
+							  </content> 
+							  <layoutData> 
+							  	<l:GridData span="L3 M12 S12" />
+							  </layoutData> 
+						 </Panel>
+						<!--  </html:div> -->
+						 <!-- <Label class="textcolor" text="{i18n>txtTimeIn}" />
+									<DateTimeInput id="inPatientGuardianDT" class="inputbordercolor"
+										type="DateTime"></DateTimeInput> -->
+										
+				<!-- =============================================================================== -->
+				 <!-- 	Time Out    									         		  				-->
+				 <!-- =============================================================================== -->	
+						<!--  <html:div class="container-time-item"> -->
+						 <Panel id="txtTimeOut"  width="100%"
+						 		headerText="{i18n>txtTimeOut}"
+						 		class="sapUiSizeCompact"> 
+						    <content>
+							    <!-- <TimePicker id="inPatientGuardianDT2" valueFormat="hh:mm a"
+									displayFormat="hh:mm a" change="handleChange"
+									placeholder="Enter daily task deadline" /> -->
+									
+									<DateTimeInput id="inPatientGuardianDT2" class="inputbordercolor" liveChange="onValidate"
+										type="DateTime"></DateTimeInput>        
+							  </content> 
+							  <layoutData> 
+							  	<l:GridData span="L3 M12 S12" />
+							  </layoutData> 
+						 </Panel>
+						<!--  </html:div> -->
+						 <!-- <Label class="textcolor" text="{i18n>txtTimeOut}" />
+									<DateTimeInput id="inPatientGuardianDT1" class="inputbordercolor"
+										type="DateTime"></DateTimeInput> -->
+						<!-- </html:div> -->
+						</l:content>
+				</l:Grid>
+				<!-- =============================================================================== -->
+				 <!-- 	Treating Physiotherapist's Signature & Stamp				     			  -->
+				 <!-- =============================================================================== -->
+				 <l:Grid defaultSpan="L12 M12 S12" id="txtSignPhysCont">  
+		         <l:content  >
+		            <Panel id="txtSignPhys" justifyContent="left" 
+		            headerText="{i18n>txtSignPhys}"
+						   class=" pnlbg gridPanel sapMPanelBG"> 
+						   <content> 
+						    <Button  
+						    class="tapButton ButtonWidth" align="center"
+						    id="imgThree" text="{i18n>txtTapHere}" press="onClickSignature" />   
+						    <html:br /> 
+						    <Image id="imgThreeDisplay" width="300px" height="110px"></Image>     
+						   </content> 
+						  <layoutData> 
+						  	<l:GridData span="L12 M12 S12" />
+						  </layoutData> 
+					</Panel> 
+					</l:content>
+				</l:Grid>
+	</Panel>
+</core:FragmentDefinition>

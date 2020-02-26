@@ -1,0 +1,30 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="imed.app.physio.view.General"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Search Patients" showHeader="false">
+		<content>
+			<VBox alignItems="Center" id="vbError" visible="true">
+				<Label></Label>
+				<Label></Label><Label></Label>
+				<Label></Label><Label></Label>
+				<Label></Label><Label></Label>
+				<Label></Label><Label></Label><Label></Label><Label></Label>
+				<ObjectStatus id="lblError" text="No patients found"
+					state="Error" icon="sap-icon://alert" />
+			</VBox>
+			<Image id="imgPreview" visible="true"></Image>
+		</content>
+		<footer>
+			<Bar>
+			    <contentLeft>
+			       <Button icon="sap-icon://log" id="btnPPCLogout" type="Reject" press="userLogoff" />
+			    </contentLeft>
+				<contentRight>
+					<Button text="{i18n>txtSubmit}" id="idSave" type="Accept" visible="false" />
+					<Button text="{i18n>txtReset}" id="idCancel" type="Reject" visible="false" />
+					<Button text="{i18n>txtpreview}" id="idPreview" type="Accept" visible="false" press="onPreview" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

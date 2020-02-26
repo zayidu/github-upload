@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m"
+       xmlns:core="sap.ui.core">
+       <SelectDialog title="Case Number"
+                             items="{Case>/}"
+                             liveChange="_handleValueHelpSearchCase"
+                             search="_handleValueHelpSearchCase"
+                             confirm="_handleValueHelpCloseCase"
+                             cancel="_handleValueHelpCloseCase">
+             <StandardListItem
+                           title="{Case>Falnr}" />
+       </SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="LoadRuntimeScript.js"></script>
+<script id="sap-ui-bootstrap" src="resources/sap-ui-core.js"
+	data-sap-ui-libs="sap.m" data-sap-ui-theme="sap_bluecrystal"
+	data-sap-ui-xx-bindingSyntax="complex"
+	data-sap-ui-resourceroots='{
+            "imed.app.physio": "./"
+        }'>
+	
+</script>
+
+<script src="scripts/sign_pad.js"></script>
+<script>
+	/* Developer: ZAYIDU A */
+	try {
+		var defer = $.Deferred()
+		var oUser = sap.ui2.shell.getUser();
+		var oUserModel = {
+			userName : "",
+			userID : "",
+			institution : "",
+			plant : "",
+			storageLocation : "",
+			cashDesk : ""
+		}
+		oUser.load({
+			depthAtRoot : 2,
+			depthAtNode : 1
+		}, function() {
+			var uname = oUser.getFullName();
+			//alert(uname);
+			oUserModel.userID = oUser.getId();
+			oUserModel.userName = oUser.getFullName();
+			defer.resolve();
+		}, function(sErrorMessage) {
+			//alert("error");
+			defer.resolve();
+		});
+
+		filtered = defer.then(function(value) {
+
+			sap.ui.getCore().attachInit(function() {
+				new sap.m.Shell("mainShell", {
+					app : new sap.ui.core.ComponentContainer({
+						height : "100%",
+						name : "imed.app.physio"
+					})
+				}).placeAt("content");
+			});
+
+		});
+
+		filtered.done(function(value) {
+
+		});
+	} catch (e) {
+		throw e;
+	}
+</script>
+</head>
+
+<body class="sapUiBody">
+	<div id="content"></div>
+	<canvas height="2500" id="canTest" style="display: none;"></canvas>
+	<div id="dummyContent"
+		style="display: none; width: 904px; height: auto;"></div>
+	<script src="scripts/html2canvas.js"></script>
+	<script src="scripts/jspdf.debug.js"></script>
+</body>
+</html>

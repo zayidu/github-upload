@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>txtPatientDetails}" class="sapUiPopupWithPadding" width="10%" >
+		<content>
+			
+				<Label text="{i18n>txtPatientId}" />
+				<Input value="" id="ipPatientID" 
+				        placeholder="Enter Patient Id.."
+						liveChange="fnPatientLive"
+						submit="handleOkButton" />
+						
+				<Label text="{i18n>txtCaseNumber}" />
+				<Input value="" id="ipCaseID" placeholder="Enter the Case Number.." 
+				showValueHelp="true" valueHelpRequest="handleValueHelpCase"  submit="handleOkButton"
+				suggestionItemSelected="fnsuggestionItemSelected"  startSuggestion='0'
+				showSuggestion="true" liveChange="fnCaseLive" change="fnCaseLive" 
+				suggestionItems="{Case>/Data/}" >
+				<suggestionItems>
+					<core:Item text="{Case>Falnr}" key="{Case>Falnr}" />
+				</suggestionItems>
+				</Input>	
+			</content> 
+			<beginButton>
+				<Button text="{i18n>txtSubmit}" type="Accept" press="handleOkButton" />
+			</beginButton>
+	</Dialog>
+</core:FragmentDefinition>
